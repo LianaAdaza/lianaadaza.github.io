@@ -1,0 +1,244 @@
+*{
+  box-sizing: border-box;
+  list-style-type: none;
+  margin: 0;
+}
+
+body {
+  background-color: #E9DAC0;
+  color: #323848;
+  font-family: "Montserrat", sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+ /* Navigation Bar */
+#nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #F1CB7A;
+  padding-top: 1%;
+  padding-right: 3%;
+  overflow: hidden;
+}
+
+.tabs {
+  float: left;
+  display: block;
+  padding: 10px;
+  color: #323848;
+  font-size: 18px;
+}
+
+.tabs:hover {
+  color: #588157;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* Header */
+header {
+  background-color: #F1CB7A;
+  height: 560px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerlogo {
+  max-width: 35%;
+}
+
+.handles {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1%;
+}
+
+.handle {
+  width: 35px;
+}
+
+/* About Me */
+#aboutme {
+  margin: 5% 5%;
+  background-color: #B592A0;
+  padding: 70px 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: 38px;
+  padding-bottom: 50px;
+}
+
+.aboutmeitems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pfp {
+  max-height: 50%;
+  width: 400px;
+}
+
+.aboutmedesc {
+  padding-left: 10%;
+  font-size: 18px;
+  line-height: 1.6em;
+}
+
+
+/* Projects */
+#myprojects {
+  margin: 5% 5%;
+  background-color: #B592A0;
+  padding: 70px 10%;
+}
+
+.projectitem {
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  align-items: center;
+}
+
+.projpic {
+  display: flex;
+  justify-content: center;
+  max-height: 30%;
+  width: 20%;
+  border-radius: 20%;
+}
+
+.projpic:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.projdescnlink {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  font-size: 22px;
+}
+
+.githublink {
+  color: #323848;
+  text-align: left;
+  padding-top: 4%;
+}
+
+.githublink:hover {
+  color: #B26E63;
+}
+
+.redtext {
+  color: #A45D51;
+  font-size: 24px;
+}
+
+/* Awards */
+#myawards {
+  margin: 5% 5%;
+  background-color: #B592A0;
+  padding: 70px 10%;
+}
+
+.awarditem {
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  align-items: center;
+}
+
+.awardpic {
+  display: flex;
+  justify-content: center;
+  max-height: 30%;
+  width: 20%;
+  border-radius: 20%;
+}
+
+.awardpic:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.awarddescnlink {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  font-size: 22px;
+}
+
+.awardlink {
+  color: #323848;
+  text-align: left;
+  padding-top: 3%;
+}
+
+.awardlink:hover {
+  color: #B26E63;
+}
+
+.awardredtext {
+  color: #A45D51;
+  font-size: 24px;
+  padding-bottom: 1%;
+}
+
+/* Contact */
+#contact {
+  text-align: center;
+  background-color: #F1CB7A;
+  padding: 70px 10%;
+  max-width: 100%;
+}
+
+.contact {
+  font-size: 20px;
+  line-height: 1.6em;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 1300px) {
+  .aboutmeitems, .projectitem, .awarditem  {
+    flex-direction: column;
+  }
+  .projpic, .awardpic {
+    width: 50%;
+  }
+  .projectdesc, .githublink, .awardlink, .awarddescnlink{
+    text-align: center;
+  }
+  .projdescnlink, .awarddescnlink {
+    padding-left: 0%;
+  }
+  .aboutmedesc, .projectdesc, .awarddescnlink {
+    padding-top: 50px;
+  }
