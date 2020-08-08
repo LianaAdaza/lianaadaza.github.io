@@ -63,6 +63,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
 }
 
 .headerlogo {
@@ -100,7 +101,7 @@ header {
 }
 
 .pfp {
-  max-height: 50%;
+  max-height: 25%;
   width: 400px;
 }
 
@@ -218,6 +219,7 @@ header {
   background-color: #F1CB7A;
   padding: 70px 10%;
   max-width: 100%;
+  text-decoration: none;
 }
 
 .contact {
