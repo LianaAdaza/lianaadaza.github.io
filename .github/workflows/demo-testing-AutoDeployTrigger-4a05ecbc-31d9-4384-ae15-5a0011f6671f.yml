@@ -1,0 +1,48 @@
+name: Trigger auto deployment for demo-testing
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ master ]
+    paths:
+    - '**'
+    - '.github/workflows/demo-testing-AutoDeployTrigger-4a05ecbc-31d9-4384-ae15-5a0011f6671f.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.DEMOTESTING_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.DEMOTESTING_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.DEMOTESTING_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}
+          _dockerfilePathKey_: _dockerfilePath_
+          registryUrl: 
+          registryUsername: ${{ secrets.DEMOTESTING_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.DEMOTESTING_REGISTRY_PASSWORD }}
+          containerAppName: demo-testing
+          resourceGroup: ladaza
+          imageToBuild: default/[parameters('containerAppName')]:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
