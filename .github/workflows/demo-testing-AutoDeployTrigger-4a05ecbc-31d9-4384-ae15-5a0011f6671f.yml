@@ -45,4 +45,14 @@ jobs:
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
+      - name: Debug Info
+          run: |
+            echo "Environment Variables:"
+            printenv
+            echo "Current Directory:"
+            pwd
+            echo "List Files:"
+            ls -la
+
+
 
